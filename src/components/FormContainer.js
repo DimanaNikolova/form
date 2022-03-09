@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "primereact/button";
 import FormArea from "./FormArea";
 import "./Control.css";
+import "./FormContainer.css";
 
 const FormContainer = (props) => {
   const [responseList, setResponseList] = useState([]);
@@ -19,18 +20,13 @@ const FormContainer = (props) => {
   const onAddResponseClick = (event) => {
     setResponseList(concatResponseList());
   };
+
   useEffect(() => {
     onAddResponseClick();
   }, []);
 
   return (
-    <div className="mb-4 mt-2 container-fluid">
-      {/* {responseList.length == 0 ? (
-        <FormArea responseIdentifier={responseList.length} />
-      ) : (
-        responseList
-      )} */}
-      {/* <FormArea responseIdentifier={responseList.length} /> */}
+    <div className="mb-4 mt-2 container-fluid pop-up-container">
       {responseList}
       <section>
         <Button
@@ -53,7 +49,7 @@ export default FormContainer;
 //napravi trash butona dca raboti
 //napravi delete response da raboti
 //napravi go da se pokazva i kato pop up
-
+//proveri renderinga kak e
 //izmisli adekvaten naming
 
 //napravi readme i opishi vsichko
