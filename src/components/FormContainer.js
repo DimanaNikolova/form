@@ -56,4 +56,4 @@ export default FormContainer;
 
 //izmisli adekvaten naming
 
-//napravi readme i opishi vsichko
+//napravi readme i
