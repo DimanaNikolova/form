@@ -1,5 +1,5 @@
 import { Form, Field } from "react-final-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "primereact/button";
 import AddFields from "./AddButtonField";
@@ -7,6 +7,15 @@ import "./Control.css";
 
 const FormArea = (props) => {
   const [inputList, setInputList] = useState([]);
+  const [deleteFieldIsClicked, setDeleteFieldIsClicked] = useState();
+
+  //identifiera se promenq sled purviq remove i ne hvashta pravilno
+  useEffect(() => {
+    // console.log(deleteFieldIsClicked);
+    // inputList.splice(deleteFieldIsClicked, 1);
+    // inputList.indexOf(e.target);
+    // console.log(inputList);
+  }, [deleteFieldIsClicked]);
 
   const onSubmit = () => {
     console.log("onsubmit e triggered");
@@ -15,7 +24,11 @@ const FormArea = (props) => {
   const onAddBtnClick = (event) => {
     setInputList(
       inputList.concat(
-        <AddFields key={inputList.length} fieldIdentifier={inputList.length} />
+        <AddFields
+          key={inputList.length}
+          fieldIdentifier={inputList.length}
+          deleteFieldIsClicked={setDeleteFieldIsClicked}
+        />
       )
     );
   };

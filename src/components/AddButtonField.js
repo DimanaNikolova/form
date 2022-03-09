@@ -2,6 +2,11 @@ import { Field } from "react-final-form";
 import { Button } from "primereact/button";
 
 const AddFields = (props) => {
+  const deleteFieldHandler = (e) => {
+    console.log(e);
+    props.deleteFieldIsClicked(e.target.parent.parent);
+  };
+
   return (
     <div className="add-buttons-row row">
       <div>
@@ -35,7 +40,7 @@ const AddFields = (props) => {
         {/* <FormButtonWrapper> */}
         <Button
           className="delete-btn d-block"
-          // onClick={() => remove(index)}
+          onClick={(e) => deleteFieldHandler(e)}
           icon="fa fa-trash-o"
           type="button"
         />
