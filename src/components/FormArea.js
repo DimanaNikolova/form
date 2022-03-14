@@ -1,4 +1,4 @@
-import { Form, Field } from "react-final-form";
+import { Form, Field, FormSpy } from "react-final-form";
 import { useState } from "react";
 
 import { Button } from "primereact/button";
@@ -6,12 +6,12 @@ import AddFields from "./AddButtonField";
 
 import "./Control.css";
 
-const FormArea = () => {
+const FormArea = ({ subscription }) => {
   const [inputList, setInputList] = useState([]);
   const [isDeleted, setIsDeleted] = useState(false);
 
-  const onSubmit = () => {
-    console.log("onSubmit is triggered");
+  const onSubmit = (e) => {
+    console.log(e);
   };
 
   const onAddBtnClick = () => {
@@ -42,7 +42,7 @@ const FormArea = () => {
             </div>
           </div>
           <Form
-            onSubmit={onSubmit}
+            onSubmit={(e) => onSubmit(e)}
             initialValues={{
               messageType: "text",
             }}

@@ -39,14 +39,12 @@ const AddFields = (props) => {
             />
           </div>
           <div className="col-1 form-control-block">
-            {/* <FormButtonWrapper> */}
             <Button
               className="delete-btn d-block icon-only"
               onClick={(e) => setIsDeleted(true)}
               icon="fa fa-trash-o"
               type="button"
             />
-            {/* </FormButtonWrapper> */}
           </div>
         </div>
       )}
